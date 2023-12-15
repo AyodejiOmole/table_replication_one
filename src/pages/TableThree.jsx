@@ -34,7 +34,7 @@ function TableThree() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="relative w-full p-3 mb-6 mt-6">
         <div className="flex justify-between w-full pb-10 border-b-2 border-green-600 mb-10">
           <div className="flex justify-between shadow-lg gap-2 items-center py-2 px-4 bg-blue-700 rounded-md cursor-pointer">
