@@ -7,6 +7,8 @@ import { RiEyeCloseLine } from "react-icons/ri";
 import Speedometer from "../components/Speedometer";
 import Navbar from "../components/Navbar";
 import { FaPlus } from "react-icons/fa6";
+import { MdOutlinePushPin } from "react-icons/md";
+import { MdContentCopy } from "react-icons/md";
 
 function TableOne() {
   const [tableDetails, setTableDetails] = useState(
@@ -88,16 +90,20 @@ function TableOne() {
           <table className="w-full">
             <thead className="">
               <tr className="border border-solid border-l-0 border-r-0 ">
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Status</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">ID</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Start</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Optimization</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Steering</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">#Rules</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Configuration</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Reviewers</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">Upload</th>
-                <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-3 py-3">      </th>
+              <th className="text-sm text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3">    </th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Status</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">ID</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Name</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">#Products</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">From<br/>Till</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">#Rules</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Steering</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Targets</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Predicted Revenue</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Predicted Profit</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Predicted Sales</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">Profit Margin</th>
+                <th className="text-xs text-left border border-l-0 border-r-0 text-gray-500 px-2 py-3 whitespace-nowrap">      </th>
               </tr>
             </thead>
             <tbody className="">
@@ -105,29 +111,58 @@ function TableOne() {
                 return (
                   <tr className="border border-solid w-auto border-l-0 border-r-0 px-4 py-3">
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-3">
+                      <MdOutlinePushPin size={20} color={"#1D4ED8"}/>
+                    </td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-3">
                       <IoCheckmarkDone className="" size={20} color={"#1D4ED8"}/>
                     </td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.ID}</td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Start}</td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Optimization}</td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">4465</td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">
+                        15 Dec 2023 <br/>
+                        21 Dec 2023
+                    </td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Rules}</td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">
                       {/* <Steering value={item.Steering}/> */}
                       <Speedometer percentage={item.steering}/>
                     </td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Rules}</td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Configuration}</td>
-                    <td className="text-sm text-gray-500 py-3 w-auto">
-                      <div className="w-full">
-                        <ReviewersBox name={item.Reviewers}/>
-                      </div>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">
+                        Winter Sales FW23
                     </td>
-                    <td className="text-sm whitespace-nowrap text-left text-gray-500 px-3 py-3">{item.Upload}</td>
+                    <td className="text-sm text-gray-500 py-3 w-auto">
+                      {/* <div className="w-full">
+                        <ReviewersBox name={item.Reviewers}/>
+                      </div> */}
+                      +4.89%
+                    </td>
+                    <td className="text-sm text-gray-500 py-3 w-auto">
+                      {/* <div className="w-full">
+                        <ReviewersBox name={item.Reviewers}/>
+                      </div> */}
+                      -4.19%
+                    </td>
+                    <td className="text-sm text-gray-500 py-3 w-auto">
+                      {/* <div className="w-full">
+                        <ReviewersBox name={item.Reviewers}/>
+                      </div> */}
+                      +26.19%
+                    </td>
+                    <td className="text-sm text-gray-500 py-3 w-auto">
+                      {/* <div className="w-full">
+                        <ReviewersBox name={item.Reviewers}/>
+                      </div> */}
+                      62.7%
+                    </td>
+                    {/* <td className="text-sm whitespace-nowrap text-left text-gray-500 px-3 py-3">{item.Upload}</td> */}
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-3">
-                      <div className="flex space-between gap-2 w-full ">
+                      {/* <div className="flex space-between gap-2 w-full ">
                         <IoPencil className="fill-gray-400" size={17}/>
                         <RiEyeCloseLine className="fill-blue-700" size={17}/>
                         <FaTrash className="fill-gray-400" size={17}/>
-                      </div>
+                      </div> */}
+                      <MdContentCopy  color={"#1D4ED8"} size={17}/>
                     </td>
                   </tr>
                 );
