@@ -10,8 +10,8 @@ function App() {
     <>
       <Navbar/>
       <TableOne />
-      {/* <TableTwo/> */}
-      {/* <TableThree />  */}
+      <TableTwo/>
+      <TableThree /> 
     </>
   )
 }
