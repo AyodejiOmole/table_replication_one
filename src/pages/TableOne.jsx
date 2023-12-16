@@ -1,73 +1,92 @@
 import { useState } from 'react';
-import { FaTrash } from "react-icons/fa";
-import { IoPencil } from "react-icons/io5";
-import ReviewersBox from '../components/ReviewersBox';
 import { IoCheckmarkDone } from "react-icons/io5";
-import { RiEyeCloseLine } from "react-icons/ri";
+import { IoMdCheckmark } from "react-icons/io";
 import Speedometer from "../components/Speedometer";
 import Navbar from "../components/Navbar";
 import { FaPlus } from "react-icons/fa6";
 import { MdOutlinePushPin } from "react-icons/md";
 import { MdContentCopy } from "react-icons/md";
+import FiltersTableTwo from '../components/FiltersTableTwo';
+import PercentageContainer from '../components/PercentageContainer';
 
 function TableOne() {
   const [tableDetails, setTableDetails] = useState(
     [
       {
-        status: "Lorem ipsum dolor",
-        ID: "59",
-        Start: "Nov 21, 2023, 10:38 am",
-        Optimization: "ONLINE SALES FW23_8(ID:616)",
+        status: "check",
+        id: 624,
+        start: "Nov 21, 2023, 10:38 am",
+        name: "ONLINE SALES FW23_1",
+        targets: "Winter sales FW23",
         steering: 90,
-        Rules: "4",
-        Configuration: "Price Changes - S3",
-        Reviewers: "Andrea Antonescu",
-        Upload: "Nov 6, 2023, 10:38 am",
+        products: 4465,
+        rules: 3,
+        predicted_revenue: 4.89,
+        predicted_profit: -4.19,
+        predicted_sales: 26.19,
+        profit_margin: 62.7,
+        from_till: ["15 Dec 2023", "21 Dec 2023"]
       },
       {
-        status: "Lorem ipsum dolor",
-        ID: "58",
-        Start: "Nov 21, 2023, 10:38 am",
-        Optimization: "ONLINE SALES FW23_8(ID:616)",
-        Rules: "4",
-        steering: 10,
-        Configuration: "Price Changes - S3",
-        Reviewers: "Andrea Antonescu",
-        Upload: "Nov 6, 2023, 2:53 pm",
+        status: "check",
+        id: 624,
+        start: "Nov 21, 2023, 10:38 am",
+        name: "ONLINE SALES FW23_1",
+        targets: "Winter sales FW23",
+        steering: 90,
+        products: 4465,
+        rules: 3,
+        predicted_revenue: 4.89,
+        predicted_profit: -4.19,
+        predicted_sales: 26.19,
+        profit_margin: 62.7,
+        from_till: ["15 Dec 2023", "21 Dec 2023"]
       },
       {
-        status: "Lorem ipsum dolor",
-        ID: "58",
-        Start: "Nov 21, 2023, 10:38 am",
-        Optimization: "ONLINE SALES FW23_8(ID:616)",
-        Rules: "4",
-        steering: 80,
-        Configuration: "Price Changes - S3",
-        Reviewers: "Andrea Antonescu",
-        Upload: "Nov 6, 2023, 2:53 pm",
+        status: "check",
+        id: 624,
+        start: "Nov 21, 2023, 10:38 am",
+        name: "ONLINE SALES FW23_1",
+        targets: "Winter sales FW23",
+        steering: 90,
+        products: 4465,
+        rules: 3,
+        predicted_revenue: 4.89,
+        predicted_profit: -4.19,
+        predicted_sales: 26.19,
+        profit_margin: 62.7,
+        from_till: ["15 Dec 2023", "21 Dec 2023"]
       },
       {
-        status: "Lorem ipsum dolor",
-        ID: "58",
-        Start: "Nov 21, 2023, 10:38 am",
-        Optimization: "ONLINE SALES FW23_8(ID:616)",
-        Rules: "4",
-        steering: 50,
-        Configuration: "Price Changes - S3",
-        Reviewers: "Andrea Antonescu",
-        Upload: "Nov 6, 2023, 2:53 pm",
+        status: "check",
+        id: 624,
+        start: "Nov 21, 2023, 10:38 am",
+        name: "ONLINE SALES FW23_11",
+        targets: "Online sales FW23",
+        steering: 90,
+        products: 4465,
+        rules: 3,
+        predicted_revenue: 4.89,
+        predicted_profit: -4.19,
+        predicted_sales: 26.19,
+        profit_margin: 62.7,
+        from_till: ["15 Dec 2023", "21 Dec 2023"]
       },
       {
-        status: "Lorem ipsum dolor",
-        ID: "58",
-        Start: "Nov 21, 2023, 10:38 am",
-        Optimization: "ONLINE SALES FW23_8(ID:616)",
-        Rules: "4",
-        steering: 30,
-        Configuration: "Price Changes - S3",
-        Reviewers: "Andrea Antonescu",
-        Upload: "Nov 6, 2023, 2:53 pm",
-      }
+        status: "dcheck",
+        id: 624,
+        start: "Nov 21, 2023, 10:38 am",
+        name: "ONLINE SALES FW23_1",
+        targets: "Winter sales FW23",
+        steering: 100,
+        products: 4465,
+        rules: 3,
+        predicted_revenue: 4.89,
+        predicted_profit: -4.19,
+        predicted_sales: 26.19,
+        profit_margin: 62.7,
+        from_till: ["7 Dec 2023", "13 Dec 2023"]
+      },
     ]
   );
 
@@ -114,55 +133,39 @@ function TableOne() {
                       <MdOutlinePushPin size={20} color={"#1D4ED8"}/>
                     </td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-3">
-                      <IoCheckmarkDone className="" size={20} color={"#1D4ED8"}/>
+                      {item.status !== "check" ? <IoCheckmarkDone size={20} color={"#1D4ED8"}/> : <IoMdCheckmark size={20} color={"#1D4ED8"}/>}
                     </td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.ID}</td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Start}</td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">4465</td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.id}</td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.name}</td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.products}</td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">
-                        15 Dec 2023 <br/>
-                        21 Dec 2023
+                      {item.from_till[0]}
+                        {/* 15 Dec 2023 */}
+                         <br/>
+                        {/* 21 Dec 2023 */}
+                      {item.from_till[1]}
                     </td>
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.Rules}</td>
+                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">{item.rules}</td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">
-                      {/* <Steering value={item.Steering}/> */}
                       <Speedometer percentage={item.steering}/>
                     </td>
                     <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-5">
-                        Winter Sales FW23
+                        <FiltersTableTwo filter={item.targets}/>
                     </td>
                     <td className="text-sm text-gray-500 py-3 w-auto">
-                      {/* <div className="w-full">
-                        <ReviewersBox name={item.Reviewers}/>
-                      </div> */}
-                      +4.89%
+                      <PercentageContainer number={item.predicted_revenue}/>
                     </td>
                     <td className="text-sm text-gray-500 py-3 w-auto">
-                      {/* <div className="w-full">
-                        <ReviewersBox name={item.Reviewers}/>
-                      </div> */}
-                      -4.19%
+                      <PercentageContainer number={item.predicted_profit}/>
                     </td>
                     <td className="text-sm text-gray-500 py-3 w-auto">
-                      {/* <div className="w-full">
-                        <ReviewersBox name={item.Reviewers}/>
-                      </div> */}
-                      +26.19%
+                      <PercentageContainer number={item.predicted_sales}/>
                     </td>
                     <td className="text-sm text-gray-500 py-3 w-auto">
-                      {/* <div className="w-full">
-                        <ReviewersBox name={item.Reviewers}/>
-                      </div> */}
-                      62.7%
+                      <FiltersTableTwo filter={`${item.profit_margin}%`}/>
                     </td>
-                    {/* <td className="text-sm whitespace-nowrap text-left text-gray-500 px-3 py-3">{item.Upload}</td> */}
-                    <td className="text-sm text-left whitespace-nowrap text-gray-500 px-3 py-3">
-                      {/* <div className="flex space-between gap-2 w-full ">
-                        <IoPencil className="fill-gray-400" size={17}/>
-                        <RiEyeCloseLine className="fill-blue-700" size={17}/>
-                        <FaTrash className="fill-gray-400" size={17}/>
-                      </div> */}
-                      <MdContentCopy  color={"#1D4ED8"} size={17}/>
+                    <td className="text-sm text-left cursor-pointer whitespace-nowrap text-gray-500 px-3 py-3">
+                      <MdContentCopy color={"#1D4ED8"} size={17}/>
                     </td>
                   </tr>
                 );
