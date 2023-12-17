@@ -1,7 +1,4 @@
-import { useState } from 'react';
 import TableOne from './pages/TableOne';
-import TableTwo from './pages/TableTwo';
-import TableThree from './pages/TableThree';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -10,8 +7,6 @@ function App() {
     <>
       <Navbar/>
       <TableOne />
-      <TableTwo/>
-      <TableThree /> 
     </>
   )
 }
